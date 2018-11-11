@@ -1,6 +1,6 @@
 import requests
 from .ChromaBinary import ChromaBcaHandler
-from .ChromaDevices import Keyboard, Mouse, Mousepad, ChromaLink, Headset
+from .ChromaDevices import Keyboard, Mouse, Mousepad, ChromaLink, Headset, Keypad
 from .ChromaDatatypes import Heartbeat, ChromaAppInfo
 
 
@@ -24,6 +24,7 @@ class ChromaApp:
             self.SessionID, self.URI = response.json()['sessionid'], response.json()['uri']
             self.heartbeat = Heartbeat(self.URI)
             self.Keyboard = Keyboard(self.URI,self.rsession)
+            self.Keypad = Keypad(self.URI,self.rsession)
             self.Mouse = Mouse(self.URI,self.rsession)
             self.Mousepad = Mousepad(self.URI,self.rsession)
             self.Headset = Headset(self.URI,self.rsession)
