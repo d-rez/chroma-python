@@ -16,10 +16,11 @@ def checkresult(result):
 
 
 class Heartbeat(object):
-    def __init__(self, URI: str):
+    def __init__(self, URI: str, rsession):
         try:
             self.URI = URI
             self.go = True
+            self.rsession = rsession
             thread = threading.Thread(target=self.run, args=())
             thread.daemon = True
             thread.start()
@@ -34,7 +35,7 @@ class Heartbeat(object):
     def run(self):
         try:
             while self.go:
-                requests.put(self.URI + '/heartbeat').json()
+                self.rsession.put(self.URI + '/heartbeat').json()
                 sleep(1)
         except:
             # TODO Add proper exception handling

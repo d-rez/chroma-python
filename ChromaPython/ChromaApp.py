@@ -19,14 +19,15 @@ class ChromaApp:
                 "device_supported": Info.SupportedDevices,
                 "category": Info.Category
             }
-            response = requests.post(url=url, json=data)
+            self.rsession = requests.Session()
+            response = self.rsession.post(url=url, json=data)
             self.SessionID, self.URI = response.json()['sessionid'], response.json()['uri']
-            self.heartbeat = Heartbeat(self.URI)
-            self.Keyboard = Keyboard(self.URI)
-            self.Mouse = Mouse(self.URI)
-            self.Mousepad = Mousepad(self.URI)
-            self.Headset = Headset(self.URI)
-            self.ChromaLink = ChromaLink(self.URI)
+            self.heartbeat = Heartbeat(self.URI,self.rsession)
+            self.Keyboard = Keyboard(self.URI,self.rsession)
+            self.Mouse = Mouse(self.URI,self.rsession)
+            self.Mousepad = Mousepad(self.URI,self.rsession)
+            self.Headset = Headset(self.URI,self.rsession)
+            self.ChromaLink = ChromaLink(self.URI,self.rsession)
             self.BcaHandler = ChromaBcaHandler()
         except:
             # TODO Add proper exception handling

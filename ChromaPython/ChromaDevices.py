@@ -7,9 +7,10 @@ from time import sleep
 
 
 class Mousepad:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, rsession):
         self._MaxLED = 15
         self._ColorGrid = [ChromaColor(red=0, green=0, blue=0) for x in range(15)]
+        self.rsession = rsession
         try:
             self._URI = uri + '/mousepad'
 
@@ -30,7 +31,10 @@ class Mousepad:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -42,7 +46,10 @@ class Mousepad:
             "effect": "CHROMA_NONE"
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -70,8 +77,11 @@ class Mousepad:
             "param": tmp
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
 
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -90,10 +100,11 @@ class Mousepad:
 
 
 class Headset:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, rsession):
 
         self._MaxLED = 2
         self._ColorGrid = [ChromaColor(red=0, green=0, blue=0) for x in range(2)]
+        self.rsession = rsession
         try:
             self._URI = uri + '/headset'
         except:
@@ -113,7 +124,10 @@ class Headset:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -124,7 +138,10 @@ class Headset:
             "effect": "CHROMA_NONE"
             }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -152,8 +169,11 @@ class Headset:
             "param": tmp
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
 
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -172,9 +192,10 @@ class Headset:
 
 
 class ChromaLink:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, rsession):
         self._MaxLED = 5
         self._ColorGrid = [ChromaColor(red=0, green=0, blue=0) for x in range(5)]
+        self.rsession = rsession
 
         try:
             self._URI = uri + '/chromalink'
@@ -197,7 +218,10 @@ class ChromaLink:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -209,7 +233,10 @@ class ChromaLink:
             "effect": "CHROMA_NONE"
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -237,8 +264,11 @@ class ChromaLink:
             "param": tmp
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
 
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -257,10 +287,11 @@ class ChromaLink:
 
 
 class Mouse:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, rsession):
         self._MaxRow = 9
         self._MaxColumn = 7
         self._ColorGrid = [[ChromaColor(red=0, green=0, blue=0) for x in range(7)] for y in range(9)]
+        self.rsession = rsession
 
         try:
             self._URI = uri + '/mouse'
@@ -286,7 +317,10 @@ class Mouse:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -298,7 +332,10 @@ class Mouse:
             "effect": "CHROMA_NONE"
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -328,7 +365,10 @@ class Mouse:
             "param": [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6], tmp[7], tmp[8]]
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -348,10 +388,11 @@ class Mouse:
 
 
 class Keyboard:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, rsession):
         self._MaxRow = 6
         self._MaxColumn = 22
         self._ColorGrid = [[ChromaColor(red=0, green=0, blue=0) for x in range(22)] for y in range(6)]
+        self.rsession = rsession
         self._Keys = KeyboardKeys()
 
         try:
@@ -378,7 +419,10 @@ class Keyboard:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -390,7 +434,10 @@ class Keyboard:
             "effect": "CHROMA_NONE"
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -420,7 +467,10 @@ class Keyboard:
             "param": [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5]]
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -468,10 +518,11 @@ class Keyboard:
 
 
 class Keypad:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, rsession):
         self._MaxRow = 4
         self._MaxColumn = 5
         self._ColorGrid = [[ChromaColor(red=0, green=0, blue=0) for x in range(22)] for y in range(6)]
+        self.rsession = rsession
         self._Keys = KeyboardKeys()
 
         try:
@@ -498,7 +549,10 @@ class Keypad:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -511,7 +565,10 @@ class Keypad:
         }
 
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
@@ -540,7 +597,10 @@ class Keypad:
             "param": [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5]]
         }
         try:
-            return checkresult(requests.put(url=self._URI, json=data).json())
+            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            return True, 0
+        except requests.exceptions.ReadTimeout:
+            pass
         except:
             # TODO Add proper exception handling
             print('Unexpected Error!')
