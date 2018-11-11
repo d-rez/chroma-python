@@ -22,7 +22,7 @@ class ChromaApp:
             self.rsession = requests.Session()
             response = self.rsession.post(url=url, json=data)
             self.SessionID, self.URI = response.json()['sessionid'], response.json()['uri']
-            self.heartbeat = Heartbeat(self.URI,self.rsession)
+            self.heartbeat = Heartbeat(self.URI)
             self.Keyboard = Keyboard(self.URI,self.rsession)
             self.Mouse = Mouse(self.URI,self.rsession)
             self.Mousepad = Mousepad(self.URI,self.rsession)
