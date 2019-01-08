@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='ChromaPython',
-      version='0.1turbo',
+      version='0.2',
       description='A minimalistic python-library for the Chroma Rest-API',
       url='https://github.com/chroma-sdk/chroma-python',
       author='',

@@ -31,7 +31,7 @@ class Mousepad:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -46,7 +46,7 @@ class Mousepad:
             "effect": "CHROMA_NONE"
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -77,7 +77,7 @@ class Mousepad:
             "param": tmp
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
 
         except requests.exceptions.ReadTimeout:
@@ -124,7 +124,7 @@ class Headset:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -138,7 +138,7 @@ class Headset:
             "effect": "CHROMA_NONE"
             }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -169,7 +169,7 @@ class Headset:
             "param": tmp
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
 
         except requests.exceptions.ReadTimeout:
@@ -218,7 +218,7 @@ class ChromaLink:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -233,7 +233,7 @@ class ChromaLink:
             "effect": "CHROMA_NONE"
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -264,7 +264,7 @@ class ChromaLink:
             "param": tmp
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
 
         except requests.exceptions.ReadTimeout:
@@ -317,7 +317,7 @@ class Mouse:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -332,7 +332,7 @@ class Mouse:
             "effect": "CHROMA_NONE"
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -365,7 +365,7 @@ class Mouse:
             "param": [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6], tmp[7], tmp[8]]
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -419,7 +419,7 @@ class Keyboard:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -434,7 +434,7 @@ class Keyboard:
             "effect": "CHROMA_NONE"
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -467,7 +467,7 @@ class Keyboard:
             "param": [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5]]
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -549,7 +549,7 @@ class Keypad:
                     "color": int(color.getHexBGR(), 16)
                 }
             }
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -565,7 +565,7 @@ class Keypad:
         }
 
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
@@ -597,7 +597,7 @@ class Keypad:
             "param": tmp
         }
         try:
-            self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
+            self.rsession.put(url=self._URI, json=data, timeout=0.5)
             return True, 0
         except requests.exceptions.ReadTimeout:
             pass
