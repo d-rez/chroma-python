@@ -521,7 +521,7 @@ class Keypad:
     def __init__(self, uri: str, rsession):
         self._MaxRow = 4
         self._MaxColumn = 5
-        self._ColorGrid = [[ChromaColor(red=0, green=0, blue=0) for x in range(22)] for y in range(6)]
+        self._ColorGrid = [[ChromaColor(red=0, green=0, blue=0) for x in range(self._MaxColumn)] for y in range(self._MaxRow)]
         self.rsession = rsession
         self._Keys = KeyboardKeys()
 
@@ -586,7 +586,7 @@ class Keypad:
             raise
 
     def applyGrid(self):
-        tmp = [[0 for x in range(22)] for y in range(6)]
+        tmp = [[0 for x in range(self._MaxColumn)] for y in range(self._MaxRow)]
 
         for i in range(0, len(self._ColorGrid)):
             for j in range(0, len(self._ColorGrid[i])):
@@ -594,7 +594,7 @@ class Keypad:
 
         data = {
             "effect": "CHROMA_CUSTOM",
-            "param": [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5]]
+            "param": tmp
         }
         try:
             self.rsession.put(url=self._URI, json=data, timeout=0.0000000001)
